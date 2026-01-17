@@ -1,0 +1,12 @@
+{
+  "name": "janky-backend",
+  "version": "1.0.0",
+  "description": "node + mongo for janky game",
+  "license": "ISC",
+  "author": "Fox Scarlett",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  }
+}
