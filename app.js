@@ -16,7 +16,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send(
-    '<p style="text-align: center; background:#add; padding: 20px;">Janky API is running</p>',
+    '<p style="text-align: center; background:#add; padding: 20px;">Janky API is running LAMF</p>',
   )
 })
 

@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "node --watch app.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
