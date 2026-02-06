@@ -1,13 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv'
-// import { connectDB } from './config/db.js'
+import { connectDB } from './src/config/db.js'
 
 // import userRoutes from './routes/user.routes.js'
 // import gearRoutes from './routes/gear.routes.js'
 
 dotenv.config()
 
-// connectDB()
+connectDB()
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -24,6 +24,6 @@ app.get('/', (req, res) => {
 // app.use('/api/v1/gearRoutes', gearRoutes)
 
 app.listen(PORT, () => {
-  // connectDB()
+  connectDB()
   console.log(`🖥️ Server is running on port ${PORT}`)
 })
