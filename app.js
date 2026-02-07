@@ -3,8 +3,7 @@ import { clerkMiddleware } from '@clerk/express'
 import dotenv from 'dotenv'
 import { connectDB } from './src/config/db.js'
 
-// import userRoutes from './routes/user.routes.js'
-// import gearRoutes from './routes/gear.routes.js'
+import userRoutes from './src/routes/user.routes.js'
 
 dotenv.config()
 
@@ -23,8 +22,7 @@ app.get('/', (req, res) => {
   )
 })
 
-// app.use('/api/v1/userRoutes', userRoutes)
-// app.use('/api/v1/gearRoutes', gearRoutes)
+app.use('/api/v1/users', userRoutes)
 
 app.listen(PORT, () => {
   connectDB()
