@@ -12,6 +12,7 @@
     "dev": "node --watch app.js"
   },
   "dependencies": {
+    "@clerk/express": "^1.7.69",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^9.1.4"
