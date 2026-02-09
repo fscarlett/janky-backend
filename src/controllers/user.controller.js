@@ -1,14 +1,26 @@
 import mongoose from 'mongoose'
 import User from '../models/UserModel.js'
 
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({})
+    res.status(200).json({ success: true, data: users })
+  } catch (error) {
+    console.error('Error in Fetch users.', error.message)
+    res.status(500).json({ message: 'Server Error' })
+  }
+}
+
 export const getUser = async (req, res) => {
   try {
-    const { userId } = req.auth // Get the authenticated user's ID from Clerk
-    let user = await User.findOne({ clerkId: userId })
+    // const { userId } = req.auth // Get the authenticated user's ID from Clerk
+    const userId = req.id // Get the authenticated user's ID from Clerk
+    let user = await User.findOne({ id: userId })
 
     if (!user) {
       console.log('user not found 🤷‍♀️')
     }
+    res.status(200).json({ success: true, data: user })
   } catch (error) {
     console.error('Error fetching user:', error)
     res.status(500).json({ message: 'Server error' })
@@ -19,6 +31,7 @@ export const createUser = async (req, res) => {
   const user = req.body
 
   const newUser = new User(user)
+  console.log('Creating new user:', newUser)
 
   try {
     await newUser.save()
