@@ -4,10 +4,7 @@ const userSchema = new mongoose.Schema(
   {
     clerkId: { type: String, required: true, unique: true },
     username: { type: String, required: true, unique: true },
-    scores: {
-      type: Object,
-      default: {},
-    },
+    email: { type: String, required: false, unique: true },
   },
   {
     timestamps: true,

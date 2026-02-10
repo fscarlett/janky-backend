@@ -14,7 +14,7 @@ export const getAllUsers = async (req, res) => {
 export const getUser = async (req, res) => {
   try {
     // const { userId } = req.auth // Get the authenticated user's ID from Clerk
-    const userId = req.id // Get the authenticated user's ID from Clerk
+    const userId = req.id
     let user = await User.findOne({ id: userId })
 
     if (!user) {
@@ -31,7 +31,7 @@ export const createUser = async (req, res) => {
   const user = req.body
 
   const newUser = new User(user)
-  console.log('Creating new user:', newUser)
+  console.log('✨ Creating new user:', newUser)
 
   try {
     await newUser.save()
