@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
+// TODO: ADD DEFAULT SCORES
 const scoreSchema = new Schema({
-  name: 'string',
   level: 'number',
   money: 'number',
   jank: 'number',
