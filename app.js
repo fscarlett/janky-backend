@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import { connectDB } from './src/config/db.js'
 
 import userRoutes from './src/routes/user.routes.js'
+import playerStatusRoutes from './src/routes/playerStatus.routes.js'
 
 dotenv.config()
 
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use(clerkMiddleware())
 
 app.use('/api/v1/users', userRoutes)
+app.use('/api/v1/player-status', playerStatusRoutes)
 
 app.get('/', (req, res) => {
   res.send(

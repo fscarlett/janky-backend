@@ -1,6 +1,16 @@
 import mongoose from 'mongoose'
 import PlayerStatus from '../models/PlayerStatusModel.js'
 
+export const getAllPlayerStatus = async (req, res) => {
+  try {
+    const playerStatuses = await PlayerStatus.find({})
+    res.status(200).json({ success: true, data: playerStatuses })
+  } catch (error) {
+    console.error('Error in Fetch player statuses.', error.message)
+    res.status(500).json({ message: 'Server Error' })
+  }
+}
+
 export const getPlayerStatus = async (req, res) => {
   try {
     const playerStatus = await PlayerStatus.findOne({ userId: req.id })
@@ -13,6 +23,22 @@ export const getPlayerStatus = async (req, res) => {
   } catch (error) {
     console.error('Error fetching player status:', error)
     res.status(500).json({ message: 'Server error' })
+  }
+}
+
+export const createPlayerStatus = async (req, res) => {
+  const playerStatus = req.body
+
+  const newPlayerStatus = new PlayerStatus(playerStatus)
+  console.log('✨ Creating new playerStatus:', newPlayerStatus)
+
+  try {
+    await newPlayerStatus.save()
+    console.log('new PlayerStatus created:', newPlayerStatus._id)
+    res.status(201).json({ success: true, data: newPlayerStatus })
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message })
+    console.error('Error in Create PlayerStatus.', error.message)
   }
 }
 

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+const { Schema } = mongoose
 
 // TODO: ADD DEFAULT SCORES
 const scoreSchema = new Schema({

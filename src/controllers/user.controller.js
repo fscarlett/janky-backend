@@ -28,7 +28,12 @@ export const getUser = async (req, res) => {
 }
 
 export const createUser = async (req, res) => {
-  const user = req.body
+  const userPayload = req.body
+  const user = {
+    clerkId: userPayload.data.id,
+    username: userPayload.data.username,
+    email: userPayload.data?.email_addresses[0]?.email_address || '',
+  }
 
   const newUser = new User(user)
   console.log('✨ Creating new user:', newUser)
