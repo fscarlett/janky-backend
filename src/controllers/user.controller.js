@@ -33,6 +33,13 @@ export const createUser = async (req, res) => {
     clerkId: userPayload.data.id,
     username: userPayload.data.username,
     email: userPayload.data?.email_addresses[0]?.email_address || '',
+    status: {
+      level: 1,
+      money: 1000,
+      jank: 5,
+      cred: 10,
+      gear: [],
+    },
   }
 
   const newUser = new User(user)
